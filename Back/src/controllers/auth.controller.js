@@ -6,7 +6,6 @@ const registerValidationSchema = require('../validation-schemes/register-validat
 
 module.exports = {
     register: async(req, res) => {
-        const { error } = registerValidationSchema.validateSync(req.body)
 
         const {email, name, password} = req.body
 
