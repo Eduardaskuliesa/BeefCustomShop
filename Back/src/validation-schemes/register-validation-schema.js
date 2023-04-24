@@ -11,6 +11,10 @@ const registerValidationSchema = yup.object({
     .min(2, 'password must have at least 2 symbols')
     .max(32, 'password can\'t have more than 32 symbols'),
 
+    passwordConfirmation: yup.string()
+    .required('password must be confirmed')
+    .oneOf([yup.ref('password')], 'passowords must match'),
+
    name: yup.string()
     .required('name is required')
     .min(2, 'name must have at least 2 symbols')
@@ -18,4 +22,4 @@ const registerValidationSchema = yup.object({
 
 }).strict(true);
 
-module.export = registerValidationSchema
+module.exports = registerValidationSchema
